@@ -3,10 +3,10 @@ const webpack = require('webpack');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
+  cache: true,
+  devtool: "eval",
   entry: [
-    'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
     './src/index.js'
   ],
   output: {
@@ -14,10 +14,9 @@ module.exports = {
     path: resolve(__dirname, 'dist'),
     publicPath: '/'
   },
-  devtool: 'inline-source-map',
   devServer: {
     hot: true,
-    quiet: true,
+    quiet: false,
     port: 3000,
     contentBase: resolve(__dirname, 'dist'),
     publicPath: '/'
@@ -43,7 +42,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new ProgressBarPlugin()
+    new webpack.NamedModulesPlugin()
   ],
+  mode: 'development'
 };

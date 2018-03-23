@@ -1,11 +1,13 @@
 import React from 'react';
+import { hot } from 'react-hot-loader'
 import styles from './style.css';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render () {
     return (
-      <p className={styles.this}>Hello.</p>
+      <p className={styles.this}>Hello World</p>
     )
   }
 }
 
+export default hot(module)(App)
